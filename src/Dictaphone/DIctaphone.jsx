@@ -14,15 +14,14 @@ const Dictaphone = () => {
     const [response, setResponse] = useState('')
     useEffect(() => {
         const audio = new Audio('../audio/tes.mp4')
-        if (transcript && ['glavni grad Španije'].includes(transcript)) {
+        if (transcript && [transcript].includes('glavni grad Španije')) {
             settest(true)
             setResponse("Glavni grad Spanije je Madrid.")
         }
         if (test) {
             audio.play()
         }
-    }, [transcript, test ])
-    
+    }, [transcript, test])
     
     if (!browserSupportsSpeechRecognition) {
         return <span>Browser doesn't support speech recognition.</span>;
