@@ -17,14 +17,11 @@ const Dictaphone = () => {
         if (transcript && ['glavni grad Španije'].includes(transcript)) {
             settest(true)
             setResponse("Glavni grad Spanije je Madrid.")
-           
         }
-        setTimeout(() => {
-            if (test) {
-                audio.play()
-            }
-        }, 1000);
-    }, [transcript ])
+        if (test) {
+            audio.play()
+        }
+    }, [transcript, test ])
     
     
     if (!browserSupportsSpeechRecognition) {
