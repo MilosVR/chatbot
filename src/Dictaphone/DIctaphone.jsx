@@ -2,6 +2,13 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 import { useEffect, useState } from 'react';
 
 const Dictaphone = () => {
+    const {
+        transcript,
+        listening,
+        resetTranscript,
+        browserSupportsSpeechRecognition
+    } = useSpeechRecognition();
+    
     const [response, setResponse] = useState('')
     useEffect(() => {
         if (transcript.includes('glavni grad Španije')) {
@@ -9,12 +16,6 @@ const Dictaphone = () => {
         }
     }, [transcript])
 
-    const {
-        transcript,
-        listening,
-        resetTranscript,
-        browserSupportsSpeechRecognition
-    } = useSpeechRecognition();
 
     if (!browserSupportsSpeechRecognition) {
         return <span>Browser doesn't support speech recognition.</span>;
