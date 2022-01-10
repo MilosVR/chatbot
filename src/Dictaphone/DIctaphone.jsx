@@ -11,8 +11,12 @@ const Dictaphone = () => {
 
     const [response, setResponse] = useState('')
     useEffect(() => {
+        const audio = new Audio('../audio/tes.mp4')
         if (transcript && ['glavni grad Španije'].includes(transcript)) {
             setResponse("Glavni grad Spanije je Madrid.")
+            setTimeout(() => {
+                audio.play()
+            }, 1000);
         }
     }, [transcript ])
     
