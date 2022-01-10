@@ -8,10 +8,10 @@ const Dictaphone = () => {
         resetTranscript,
         browserSupportsSpeechRecognition
     } = useSpeechRecognition();
-    
-    const [response, setResponse] = useState('')
+
+    const [response, setResponse] = useState('glavni grad Španije')
     useEffect(() => {
-        if (transcript.includes('glavni grad Španije')) {
+        if (response.includes(transcript)) {
           setResponse("Glavni grad Spanije je Madrid.")
         }
     }, [transcript])
